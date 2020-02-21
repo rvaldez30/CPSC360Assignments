@@ -1,0 +1,54 @@
+//Reynaldo Valdez
+//bookmain.cpp
+
+#include <iostream>
+#include "book.h"
+
+int main(){
+	
+	book bk1;
+	
+	std::string title;
+	int bID;
+	
+	//asks the user for title
+	std::cout << "Enter the title of the book you want: " << std::endl;
+	std::getline(std::cin, title);
+	bk1.setTitle(title);
+	
+	//asks for the book ID
+	std::cout << "Book ID is: " << std::endl;
+	std::cin >> bID;
+	bk1.setBookID(bID);
+	
+	//getters get values
+	std::cout << "Title: " << bk1.getTitle() << std::endl;
+	std::cout << "Book ID is: " << bk1.getBookID() << std::endl;
+	std::cout << bk1.bookLoc() << "\n" << std::endl;
+	bk1.lendBook();
+	
+	//loop 2
+	std::cout << "Title: " << bk1.getTitle() << std::endl;
+	std::cout << "Book ID is: " << bk1.getBookID() << std::endl;
+	std::cout << bk1.bookLoc() << "\n" << std::endl;
+	
+	//values for 3-parameter consrtuctor
+	book bk2("Strange Case of Dr. Jekyll and Mr. Hyde", 23, true);
+	std::cout << "Title: " << bk2.getTitle() << std::endl;
+	std::cout << " Book ID is: " << bk2.getBookID() << std::endl;
+	std::cout << bk2.bookLoc() << "\n" << std::endl;
+	bk2.returnBook();
+	
+	//third loop
+	std::cout << "Title: " << bk2.getTitle() << std::endl;
+	std::cout << " Book ID is: " << bk2.getBookID() << std::endl;
+	std::cout << bk2.bookLoc() << "\n" << std::endl; 
+	
+	//copy constructor
+	book bk3(bk1);
+	std::cout <<"Title: " << bk3.getTitle() << std::endl;
+	std::cout <<"Book ID is: " << bk3.getBookID() << std::endl;
+	std::cout << bk3.bookLoc() << "\n" << std::endl;
+	
+	return 0;
+}
