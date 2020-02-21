@@ -1,0 +1,79 @@
+//Reynaldo Valdez
+//book.cpp
+
+#include <iostream>
+#include <cstdlib>
+#include "book.h"
+
+// first constructor aka default constructor
+
+book::book(){
+	Title = "No Title";
+	bookID = rand()%1000 + 1;
+	checkedOut = false;
+	
+}
+
+//second constructor
+
+book::book(std::string title, int bukID, bool bookCheckedOut){
+	Title = title;
+	bookID = bukID;
+	checkedOut = bookCheckedOut;
+	
+}
+
+//copy constructor
+book::book(const book &booko){
+	Title = booko.Title;
+	bookID = booko.bookID;
+	checkedOut = booko.checkedOut;
+}
+
+int book::getBookID() const{
+	return bookID;
+}
+
+void book::setBookID(int bookID){
+	bookID = bookId;
+}
+
+void book::setCheckedOut(bool checkedOut){
+	this ->checkedOut = checkedOut;
+	
+}
+
+bool book::isCheckedOut() const{
+	return checkedOut;
+}
+
+std::string book::getTitle() const{
+	return Title;
+}
+void book::setTitle(std::string title){
+	Title = title;
+}
+//in the case of the book being checked out
+void book::lendBook(){
+	if (isCheckedOut() == true){
+		std::cout << "Book is already checked out, sorry." << std::endl;
+	} else {
+		checkedOut = true;
+	}
+}
+
+void book::returnBook(){
+	checkedOut = false;
+}
+
+std::string book::bookLoc(){
+	std::string bookcase1 = "Book is not checked out and available.";
+	std::string bookcase2 = "This book is already checked out.";
+	
+	if(isCheckedOut() == true){
+		return bookcase2;
+	} else {
+		return bookcase1;
+	}
+}
+
