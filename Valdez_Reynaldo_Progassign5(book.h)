@@ -1,0 +1,39 @@
+// Reynaldo Valdez 
+// book.h assignment 
+
+#include <string>
+#ifndef BOOK_H
+#define BOOK_H
+
+class book{
+	
+	public:
+		//getters
+		int getBookID() const;
+		bool isCheckedOut() const;
+		std::string getTitle() const;
+		
+		//setters
+		void setBookID(int bookID);
+		void setTitle(std::string title);
+		void setCheckedOut(bool checkedOut);
+		
+		//constructors
+		Book(); //default
+		Book(std::string t, int bookID, bool bookCheckedOut);
+		
+		//copy 
+		book(const book &booko);
+		
+		void lendBook();
+		void returnBook();
+		
+		
+	private:
+		
+		std::string Title;
+		int bookID;
+		bool checkedOut;
+		
+};
+#endif
