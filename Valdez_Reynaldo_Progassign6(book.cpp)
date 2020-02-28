@@ -1,0 +1,113 @@
+//Reynaldo Valdez
+//book.cpp
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <ctime>
+#include "book.h"
+
+// first constructor aka default constructor
+
+book::book(){
+	Title = "No Title";
+	bookID = rand()%1000 + 1;
+	checkedOut = false;
+	
+}
+
+//second constructor
+
+book::book(std::string title, int BID, bool bookCheckedOut){
+	Title = title;
+	bookID = BID;
+	checkedOut = bookCheckedOut;
+	
+}
+
+//copy constructor
+book::book(const book &booko){
+	Title = booko.Title;
+	bookID = booko.bookID;
+	checkedOut = booko.checkedOut;
+}
+
+int book::getBookId() const{
+	return bookID;
+}
+
+void book::setBookId(int bookId){
+	bookID = bookId;
+}
+
+bool book::isCheckedOut() const{
+		return checkedOut;	
+}
+
+void book::setCheckedOut(bool checkedOut){
+	this->checkedOut = checkedOut;
+}
+
+std::string book::getTitle() const{
+	return Title;
+}
+void book::setTitle(std::string title){
+	Title = title;
+}
+//in the case of the book being checked out
+void book::lendBook(){
+	if (isCheckedOut() == true){
+		std::cout << "Book is already checked out, sorry." << std::endl;
+	} else {
+		checkedOut = true;
+	}
+}
+
+void book::returnBook(){
+	checkedOut = false;
+}
+
+std::string book::bookLoc(){
+	std::string bookcase1 = "Book is not checked out and available.";
+	std::string bookcase2 = "This book is already checked out.";
+	
+	if(isCheckedOut() == true){
+		return bookcase2;
+	} else {
+		return bookcase1;
+	}
+}
+
+//assignment 6 code here
+
+
+book book::operator-(book& right){
+	
+	Title = right.Title;
+	bookID = right.bookID;
+	checkedOut = right.checkedOut;
+	
+	right.Title = "No Title";
+	right.bookID = 0;
+	
+	return *this;
+}
+
+book book::operator+(const book& right){
+	book temp;
+	temp.Title = Title + ", " + right.Title;
+	srand(time(0));
+	temp.bookID = rand() % 1000 + 1;
+	temp.checkedOut = false;
+	return temp;
+	
+}
+
+book book::operator=(const book& right){
+	
+	Title = right.Title;
+	bookID = right.bookID;
+	checkedOut = right.checkedOut;
+	return *this;
+	
+}
