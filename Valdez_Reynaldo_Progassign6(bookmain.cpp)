@@ -1,0 +1,89 @@
+//Reynaldo Valdez
+//bookmain.cpp
+
+#include <iostream>
+#include <string>
+#include "book.h"
+
+
+void assignment5(){
+	
+	book bk1;
+	
+	std::string bookLTitle;
+	std::string title;
+	int BID;
+	
+	//asks the user for title
+	std::cout << "Enter the title of the book you want: " << std::endl;
+	std::getline(std::cin, title);
+	bk1.setTitle(title);
+	
+	//asks for the book ID
+	std::cout << "Book ID is: " << std::endl;
+	std::cin >> BID;
+	bk1.setBookID(BID);
+	
+	//getters get values
+	std::cout << "Title: " << bk1.getTitle() << std::endl;
+	std::cout << "Book ID is: " << bk1.getBookId() << std::endl;
+	std::cout << bk1.bookLoc() << "\n" << std::endl;
+	bk1.lendBook();
+	
+	//loop 2
+	std::cout << "Title: " << bk1.getTitle() << std::endl;
+	std::cout << "Book ID is: " << bk1.getBookId() << std::endl;
+	std::cout << bk1.bookLoc() << "\n" << std::endl;
+	
+	//values for 3-parameter consrtuctor
+	book bk2("Strange Case of Dr. Jekyll and Mr. Hyde", 23, true);
+	std::cout << "Title: " << bk2.getTitle() << std::endl;
+	std::cout << " Book ID is: " << bk2.getBookId() << std::endl;
+	std::cout << bk2.bookLoc() << "\n" << std::endl;
+	bk2.returnBook();
+	
+	//third loop
+	std::cout << "Title: " << bk2.getTitle() << std::endl;
+	std::cout << " Book ID is: " << bk2.getBookId() << std::endl;
+	std::cout << bk2.bookLoc() << "\n" << std::endl; 
+	
+	//copy constructor
+	book bk3(bk1);
+	std::cout <<"Title: " << bk3.getTitle() << std::endl;
+	std::cout <<"Book ID is: " << bk3.getBookId() << std::endl;
+	std::cout << bk3.bookLoc() << "\n" << std::endl;
+	
+	return 0;
+}
+
+int main(){
+	
+	//assignment5();
+	
+	book bookLibrary[5];
+	std::string bookLTitle;
+	
+	for (int i = 0; i < 5; i++){
+		//input title
+		std::cout << "Enter a title: " << std::endl;
+		std::getline(std::cin, bookLTitle);
+		int blID = rand() % 1000 + 1;
+		bool cout = false;
+		
+		bookLibrary[i] = book(bookLTitle, blID, cout);
+	}
+	
+	bookLibrary[0] = bookLibrary[1];
+	bookLibrary[2] = bookLibrary[3] + bookLibrary[4];
+	bookLibrary[3] = bookLibrary[1] - bookLibrary[4];
+	
+	std::cout << " " << std::endl;
+	
+	//for loops
+	for(int i = 0; i < 5; i++){
+		std::cout << "Title: " << bookLibrary[i].getTitle() << std::endl;
+		std::cout << "Book ID: " << bookLibrary[i].getBookId() << std::endl;
+		std::cout << " " << std::endl;
+	}
+	return 0;
+}
