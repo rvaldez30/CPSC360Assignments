@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+#include "Inheritance.h"
+
+//main
+int main(){
+	std::string AcctName;
+	int AcctID;
+	double AcctBal;
+	//name of account 
+	std::cout << "Please enter the Account Name: ";
+	std::getline(std::cin, AcctName);
+	//Acct Num
+	std::cout << "\n";
+	std::cout << "Enter the Account Number: ";
+	std::cin >> AcctID;
+	std::cout << "\n";
+	//acct Bal
+	std::cout << "What is the amount of money in this account?: ";
+	std::cin >> AcctBal;
+	std::cout << "\n";
+	AccountH(AcctName, AcctID, AcctBal);
+	std::cout <<"           Account Info Menu           \n";
+	std::cout <<"_______________________________________\n";
+	std::cout <<"Account Owner's Name: " << hold1.getNAME() << "\n";
+	std::cout <<"Account Number: " << hold1.getAcct_Num() << "\n";
+	std::cout <<"Account Balance: " << hold1.getBalance() << "\n";
+	std::cout <<"________________________________________\n";
+	int option;
+	std::cout << "Are you withdrawing or depositing today?\n"
+	std::cout << "Enter 'w' to withdraw, 'd' to deposit: ";
+	std::cin>> option;
+	double checkW;
+	double checkD;
+	double checkB;
+	checkB = AcctBal;
+	if(option == 'w'){
+		std::cout << "How much are you withdrawing?: ";
+		std::cin >> checkW;
+		std::cout << "\n";
+		checkD = 0;
+	}
+	if(option == 'd'){
+		std::cout << "How much are you depositing?: ";
+		std::cin >> checkD;
+		std::cout << "\n";
+		checkW = 0;
+	}
+	CheckAcct hold2(checkW, checkD, checkB, 0);
+	std::cout <<"           Account Info Menu           \n"; 
+	std::cout <<"_______________________________________\n";
+	std::cout <<"Withdrawl: " << hold2.getWITHDRAW() << "\n";
+	std::cout <<"Deposit: " << hold2.getDEPOSIT() << "\n";
+	std::cout <<"Your current balance is: " << hold2.getCBAL() << "\n";
+	std::cout <<"_______________________________________\n";
+	double LBal;
+	double LRate;
+	double LPay;
+	LBal = AcctBal;
+	std::cout << "Enter your interest rate: " << hold3.getINTERESTR() << "\n";
+	std::cin >> LRate;
+	std::cout << "\n";
+	std::cout << "What is the amount you are paying on thi loan?: ";
+	std::cin >> LPay;
+	std::cout << "\n";
+	LAcct hold3(LRate, LPay, LBal);
+	std::cout <<"           Account Info Menu           \n"; 
+	std::cout <<"_______________________________________\n";
+	std::cout <<"Your interest rate: " << hold3.getINTERESTR() << "\n";
+	std::cout <<" Amount that is payed: " << hold3.getPBALANCE() << "\n";
+	std::cout <<" Your Monthly Interest:$ " << hold3.getCINTEREST() << "\n";
+	std::cout <<"_________________________________________________\n";
+	return 0;
+}
