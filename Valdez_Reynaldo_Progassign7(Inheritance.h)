@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#define inheritance_h
+#ifndef inheritance_h
+
+class Acct{
+	public:
+		Acct(double);
+		Acct() {Owner_name=" ",Acct_Num = 0, Balance = 0;}
+		Acct(std::string, int, double);
+		std::string getNAME(){return Owner_Name;}
+		int getAcct_Num(){return Acct_Num;}
+		double getBalance(){return Balance;}
+		
+	private:
+		std::string Owner_name;
+		int Acct_Num;
+		double Balance;
+};
+ 
+class CheckAcct : public Acct {
+	public:
+		CheckAcct(double, double, double = 0);
+		double getDEPOSIT(){return deposit;}
+		double getWITHDRAW(){return withdraw;}
+		double getBAL2(){return Balance2;}
+		double getCBAL(){return CBal;}
+		
+	private:
+		double deposit;
+		double CBal;
+		double withdraw;
+		double Balance2;
+};
+
+class LAcct : public Acct{
+	private:
+		double InterestR;
+		double PBalance;
+		double CInterest;
+		double Balance3;
+		
+	public:
+		LAcct( double, double, double);
+		double getINTERESTR(){return InterestR;}
+		double getPBALANCE(){return PBalance;}
+		double getBALANCE3(){return Balance3;}
+		double getCINTEREST(){return CInterest;}
+};
+#endif
