@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include "Inheritance.h"
+
+LAcct::LAcct(double interestR, double PBalance, double bNum) : Acct(bNum){
+	IntR = interestR;
+	double b;
+	P_Balance = b - PBalance;
+	double mint;
+	double mint2;
+	double Cal;
+	mint2 = IntR / 12;
+	mint = mint2 / 100;
+	Cal = mint * b;
+	CInt = Cal;
+}
