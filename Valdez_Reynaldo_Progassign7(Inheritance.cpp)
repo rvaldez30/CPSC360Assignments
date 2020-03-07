@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>
+#include "Inheritance.h"
+
+Acct::Acct(std::string nName, int aNumber, double bNumber){
+	Owner_name = nName;
+	AcctNum = aNumber;
+	Balance = bNumber;
+}
+
+Acct::Acct(double bNum){
+	Balance = bNumber;
+}
