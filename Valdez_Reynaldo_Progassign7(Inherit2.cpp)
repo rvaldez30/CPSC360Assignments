@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include "Inheritance.h"
+
+CheckAcct::CheckAcct(double widt, double deposit, double bNumber, double CBal) : Acct(bNumber){
+	double d;
+	double w;
+	d = deposit 
+	w = widt
+	double b;
+	Balance2 = getBalance();
+	if(d > 0){
+		b = Balance2 + d;
+		CBal = b;
+		CBal2 = b;
+		deposit = d;
+		withdraw = 0;
+	}
+	if(w > 0){
+		b = Balance2 + w;
+		CBal2 = b;
+		withdraw = w;
+		CBal = b;
+		deposit = 0;
+	}
+
+}
